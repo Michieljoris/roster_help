@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> 
 <html class="no-js" xmlns:ng="http://angularjs.org" lang="en">
   <!--<![endif]-->
-  <head id="head"><title>Scaffold</title><meta charset='utf-8'><meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'><meta content='' name='description'><meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+  <head id="head"><title>Roster help</title><meta charset='utf-8'><meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'><meta content='' name='description'><meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 <!--[if lte IE 8]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <script>
@@ -19,56 +19,61 @@
     <script src="js/angular-ui-ieshiv.js"></script>
     <![endif]-->						    
 <script src="http://localhost:9090/skewer"></script>
-<link rel="stylesheet" type="text/css" href="css/normalize.css"><link rel="stylesheet" type="text/css" href="css/h5bp.css"><link rel="stylesheet" type="text/css" href="css/bootstrap.css"><link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"><link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.2.custom.css"><link rel="stylesheet" type="text/css" href="css/angular-ui.css"><link rel="stylesheet" type="text/css" href="css/checkboxes.css"><link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/normalize.css"><link rel="stylesheet" type="text/css" href="css/h5bp.css"><link rel="stylesheet" type="text/css" href="css/bootstrap.css"><link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css"><link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.2.custom.css"><link rel="stylesheet" type="text/css" href="css/checkboxes.css"><link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
   <body id="ng:app" ng:app="myApp"><!--[if lt IE 7]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
 
 
-<row>
-  <div class="page-header">
-    <h1 >Roster app and security </h1>
-  </div>
-</row>
+<!-- <row> -->
+<!--   <div class="page-header"> -->
+<!--     <h2>Roster app and security </h2> -->
+<!--   </div> -->
+<!-- </row> -->
 <row>
   <div class="span4">
-    <div id="menu--"><div id="leftmenu" data-spy="affix" data-offset-top="-200" data-affix-bottom="300">
+    <!-- <h2>Roster app and security </h2> -->
+    <div id="menu--"><div id="leftmenu" data-spy="affix" data-offset-top="-100" data-affix-bottom="200">
 
+  <h3>Roster app and security </h3>
   <div class="well well-small">
     <ul>
       <li>
-	<a href="#internal database">Internal database</a>
+        <a href="#security">Security</a>
       </li>
       <li>
-	<a href="#external database">External database</a>
+        <a href="#internal database">Internal database</a>
+      </li>
+      <li>
+        <a href="#external database">External database</a>
       </li>
       <ul>
-	<li>
+        <li>
           <a href="#user databases">User databases</a>
-	</li>
-	<li>
+        </li>
+        <li>
           <a href="#sharing">Sharing the user database</a>
-	</li>
-	<li>
+        </li>
+        <li>
           <a href="#options">Options:</a>
-	</li>
-	<li>
+        </li>
+        <li>
           <a href="#choices are made">Choices are made</a>
-	</li>
-	<li>
+        </li>
+        <li>
           <a href="#attack">Attack</a>
-	</li>
-	<li>
+        </li>
+        <li>
           <a href="#defense">Defense</a>
-	</li>
-	<li>
+        </li>
+        <li>
           <a href="#implementation">Implementation</a>
-	</li>
-	<li>
+        </li>
+        <li>
           <a href="#in practice">In practice</a>
-	</li>
-	<ul>
+        </li>
+        <ul>
           <li>
             <a href="#architecture">Architecture</a>
           </li>
@@ -82,10 +87,10 @@
             <a href="#changing passwords">Changing passwords</a>
           </li>
 
-	</ul>
+        </ul>
       </ul>
       <li>
-	<a href="#networking is optional">Networking is optional</a>
+        <a href="#networking is optional">Networking is optional</a>
       </li>
     </ul>
   </div>
@@ -93,7 +98,11 @@
 </div>
   </div>
   <div class="span7">
-    <div id="content--"><p>With security I mean accessibility and writability of data. The app
+    <div id="content--"><p><a id="security"></a></p>
+
+<h3>Security</h3>
+
+<p>With security I mean accessibility and writability of data. The app
 itself is unsecured. A client side permission based system was planned
 but because it is relatively easy to bypass it has not been
 implemented.</p>
@@ -113,7 +122,7 @@ be implemented but has not been done yet.</p>
 <p>When data is stored internally security comes from securing access to
 the computer where the browser is installed or running. The advantage
 of an internal database is that the app and database are portable. You
-can run the browser of a usb stick and use the app and the data on any
+can run the browser off a usb stick and use the app and the data on any
 computer. The internal database has all the capabilities of any
 appropriate external database, except for security features. Since the
 app is using a database called CouchDb that means the internal
@@ -239,7 +248,7 @@ passwords.</p>
 <p>Passwords normally do not get stored in an authenticating database in
 clear text but in encoded form called a hash. Depending on the hash
 method it can be very difficult to reverse the encoding, that is to
-change to hash back into the password. When a user logs on the server
+change the hash back into the password. When a user logs on the server
 ,the server simply hashes the entered password and compares that with the
 stored hash. When a user database is exposed a potential cracker will
 not find any passwords <strong>but</strong> he will have full access to the hashes,
@@ -277,19 +286,20 @@ calculation that takes 20 ms will not affect the user's experience of
 logging in very much but it will seriously slow down a cracker's
 calculations.</p>
 
-<p>There is a fourth defense. The original user database doesn't actually
-get shared, it only gets written to, either directly or replicated
-from another local (at the same CouchDB instance) database. What gets
-replicated and synced with other instances is that local replica of
-the user database. If a user really wants to protect their password
-and not expose its hash they can write directly to the user database
-(everyone has access to their own records). They can use the CouchDB
-internal manager or use <a href="http://quilt.michieljoris.com">quilt</a>. They will then
-have to refrain from using the roster app to update their password
-otherwise it will get shared again. They can use the password update
-of the roster app at other instances as long as that instance doesn't
-have permission to update users' passwords, since it will get written
-to the original instance again and update its user database.</p>
+<p>There is a fourth defense. You can choose not to share the original
+user database, and only write to the database, either directly or
+through replicaton from another local database (at the same CouchDB
+instance). What gets replicated and synced with other instances is
+that local replica of the user database. If a user really wants to
+protect their password and not expose its hash they can write directly
+to the user database (everyone has access to their own records). They
+can use the CouchDB internal manager (Futon) or use my app
+(<a href="http://quilt.michieljoris.com">quilt</a>). They will then have to refrain from using the roster app to
+update their password otherwise it will get shared again. They can use
+the password update of the roster app at other instances as long as
+that instance doesn't have permission to update users' passwords,
+since it will get written to the original instance again and update
+its user database.</p>
 
 <p>Another way to localize users is to tag them as such. These users do not
 get replicated from instance to instance, and only get replicated to
@@ -317,7 +327,7 @@ databases.  </p>
 
 <p>All users start out by having no permissions at all. They are then
 given permissions by assigning roles to them. If any of these roles
-have been assigned to a particular database as well they will
+have been assigned to a particular database as well they will have
 unlimited read access to it. In practice all databases will have the
 following roles:</p>
 
@@ -385,7 +395,7 @@ gets updated:</p>
 
 <p>A similar system of describing documents is applied to databases to
 prevent the wrong type of document to be written to it no matter who
-does the writing, but this will not have to edited very often. </p>
+does the writing, but this will not have to be edited very often. </p>
 
 <p>This permission system is flexible enough to allow users to be setup
 as readers of one or more databases, to give selective write
@@ -393,7 +403,7 @@ permissions to for instance replicate and sync a particular database
 and to give full or near full access to managers for instance while
 still protecting the integrity of databases.</p>
 
-<p><a id="in practice></a></p>
+<p><a id="in practice"></a></p>
 
 <h4>In practice</h4>
 
@@ -411,8 +421,8 @@ still protecting the integrity of databases.</p>
  to buy and install ssl certificates to enable verification of the
  identity of your instance (You will want the little green lock in the
  address bar of browsers when users use the app or access the
- database). All these other instance will be able to replicate from
- and to the any central or for that matter any other instance. What
+ database). All these other instances will be able to replicate from
+ and to any central or for that matter any other instance. What
  they exactly are able to replicate and write back will depend on the
  credentials that are available to the installer of the 2nd tier
  instance and the roles and permissions granted to these credentials.</p>
@@ -454,16 +464,16 @@ local instance he will have to change the credentials used to setup
 the replications for this instance as well. If a user does not want
 his password hash exposed he can change it in the a central user
 database directly, and again if he maintains a local database he will
-to update the credentials used. If he accesses the data via a local
-instance maintained by someone else he will have to use the old
-password since no user data gets replicated <em>out</em> of the central user
-database only <em>in</em>. If he updates this out of sync password in the
-roster app the password might be synchronized again across all
-instances. If a user does not want to expose their hash he can adopt
-this strategy however if he is that worried he is better off using
-a single but very strong and unique (compared to any other passwords
-he might be using elsewhere) password. It greatly eases administration
-of users' credentials.</p>
+have to update the credentials used locally. If he accesses the data
+via a local instance maintained by someone else he will have to use
+the old password since no user data gets replicated <em>out</em> of the
+central user database only <em>in</em>. If he updates this out of sync
+password in the roster app the password might be synchronized again
+across all instances. If a user does not want to expose their hash he
+can adopt this strategy however if he is that worried he is better off
+using a single but very strong and unique (compared to any other
+passwords he might be using elsewhere) password. It greatly eases
+administration of users' credentials.</p>
 
 <p><a id="groups of users"></a></p>
 
@@ -538,7 +548,7 @@ have no or very little permissions assigned to him. At the very least
 his password should not be 'guest' anymore.</p></div>
   </div>
 </row>
-<script type="text/javascript" src="thirdpartyjs/jquery-1.9.1.min.js"></script><script type="text/javascript" src="thirdpartyjs/noconsole.js"></script><script type="text/javascript" src="thirdpartyjs/jquery-ui-1.10.2.custom.min.js"></script><script type="text/javascript" src="thirdpartyjs/bootstrap.js"></script><script type="text/javascript" src="thirdpartyjs/angular.min.js"></script><script type="text/javascript" src="thirdpartyjs/angular-ui.js"></script><script type="text/javascript" src="thirdpartyjs/ui-bootstrap-tpls-0.2.0.js"></script><script type="text/javascript" src="thirdpartyjs/modernizr.js"></script>
+<script type="text/javascript" src="thirdpartyjs/jquery-1.9.1.min.js"></script><script type="text/javascript" src="thirdpartyjs/noconsole.js"></script><script type="text/javascript" src="thirdpartyjs/bootstrap.js"></script><script type="text/javascript" src="thirdpartyjs/angular.min.js"></script><script type="text/javascript" src="thirdpartyjs/modernizr.js"></script>
 <script type="text/javascript" src="js/angular.js"></script>
 </body>
 </html>	

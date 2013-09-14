@@ -5,7 +5,7 @@
 
 // var mode = 'edit';
 // var mode = 'edit';
-var myApp= angular.module('myApp', ['ui', 'ui.bootstrap'])
+var myApp= angular.module('myApp', [])
     .directive('compile', function($compile) {
         // directive factory creates a link function
         return function(scope, element, attrs) {

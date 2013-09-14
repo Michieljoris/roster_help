@@ -40,10 +40,10 @@ var exports = {
     //to generate a string to save to the file defined in 'out'.
     ,partials: {
         ids: {
-            title: '<title>Scaffold</title>'
+            title: '<title>Roster help</title>'
             ,skewer:'<script src="http://localhost:9090/skewer"></script>'
-            ,recaptcha: '<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>'
-            ,hello_world: '<h2>Hello world. Build on this scaffold!!!</h2>'
+            // ,recaptcha: '<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>'
+            // ,hello_world: '<h2>Hello world. Build on this scaffold!!!</h2>'
         }
         ,metaBlock : {
             id: 'meta',
@@ -66,7 +66,7 @@ var exports = {
                 'bootstrap'
                 ,'bootstrap-responsive'
                 ,'jquery-ui-1.10.2.custom'
-                ,'angular-ui'
+                // ,'angular-ui'
                 ,'checkboxes'
                 ,'main'
             ]
@@ -82,13 +82,13 @@ var exports = {
             {
                 id: 'vendorJsBlock',
                 files: [
-                    'jquery-1.9.1.min.js'
+                    'jquery-1.9.1.min'
                     ,'noconsole'
-                    ,'jquery-ui-1.10.2.custom.min'
+                    // ,'jquery-ui-1.10.2.custom.min'
                     ,'bootstrap'
                     ,'angular.min'
-                    ,'angular-ui'
-                    ,'ui-bootstrap-tpls-0.2.0'
+                    // ,'angular-ui'
+                    // ,'ui-bootstrap-tpls-0.2.0'
                     ,'modernizr'
                     // ,'router'
                     

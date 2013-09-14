@@ -1,3 +1,5 @@
+<a id="security"></a>
+###Security
 
 With security I mean accessibility and writability of data. The app
 itself is unsecured. A client side permission based system was planned
@@ -18,7 +20,7 @@ be implemented but has not been done yet.
 When data is stored internally security comes from securing access to
 the computer where the browser is installed or running. The advantage
 of an internal database is that the app and database are portable. You
-can run the browser of a usb stick and use the app and the data on any
+can run the browser off a usb stick and use the app and the data on any
 computer. The internal database has all the capabilities of any
 appropriate external database, except for security features. Since the
 app is using a database called CouchDb that means the internal
@@ -141,7 +143,7 @@ passwords.
 Passwords normally do not get stored in an authenticating database in
 clear text but in encoded form called a hash. Depending on the hash
 method it can be very difficult to reverse the encoding, that is to
-change to hash back into the password. When a user logs on the server
+change the hash back into the password. When a user logs on the server
 ,the server simply hashes the entered password and compares that with the
 stored hash. When a user database is exposed a potential cracker will
 not find any passwords **but** he will have full access to the hashes,
@@ -178,19 +180,20 @@ calculation that takes 20 ms will not affect the user's experience of
 logging in very much but it will seriously slow down a cracker's
 calculations.
 
-There is a fourth defense. The original user database doesn't actually
-get shared, it only gets written to, either directly or replicated
-from another local (at the same CouchDB instance) database. What gets
-replicated and synced with other instances is that local replica of
-the user database. If a user really wants to protect their password
-and not expose its hash they can write directly to the user database
-(everyone has access to their own records). They can use the CouchDB
-internal manager or use [quilt]. They will then
-have to refrain from using the roster app to update their password
-otherwise it will get shared again. They can use the password update
-of the roster app at other instances as long as that instance doesn't
-have permission to update users' passwords, since it will get written
-to the original instance again and update its user database.
+There is a fourth defense. You can choose not to share the original
+user database, and only write to the database, either directly or
+through replicaton from another local database (at the same CouchDB
+instance). What gets replicated and synced with other instances is
+that local replica of the user database. If a user really wants to
+protect their password and not expose its hash they can write directly
+to the user database (everyone has access to their own records). They
+can use the CouchDB internal manager (Futon) or use my app
+([quilt]). They will then have to refrain from using the roster app to
+update their password otherwise it will get shared again. They can use
+the password update of the roster app at other instances as long as
+that instance doesn't have permission to update users' passwords,
+since it will get written to the original instance again and update
+its user database.
 
 Another way to localize users is to tag them as such. These users do not
 get replicated from instance to instance, and only get replicated to
@@ -217,7 +220,7 @@ databases.
 
 All users start out by having no permissions at all. They are then
 given permissions by assigning roles to them. If any of these roles
-have been assigned to a particular database as well they will
+have been assigned to a particular database as well they will have
 unlimited read access to it. In practice all databases will have the
 following roles:
 
@@ -278,7 +281,7 @@ Allows a user  to update its own credentials, but nothing more:
 	
 A similar system of describing documents is applied to databases to
 prevent the wrong type of document to be written to it no matter who
-does the writing, but this will not have to edited very often. 
+does the writing, but this will not have to be edited very often. 
 
 This permission system is flexible enough to allow users to be setup
 as readers of one or more databases, to give selective write
@@ -287,7 +290,7 @@ and to give full or near full access to managers for instance while
 still protecting the integrity of databases.
 
 
-<a id="in practice></a>
+<a id="in practice"></a>
 ####In practice
 
 <a id="architecture"></a>
@@ -302,8 +305,8 @@ There is a central (backed up by replicas perhaps) instance holding
  to buy and install ssl certificates to enable verification of the
  identity of your instance (You will want the little green lock in the
  address bar of browsers when users use the app or access the
- database). All these other instance will be able to replicate from
- and to the any central or for that matter any other instance. What
+ database). All these other instances will be able to replicate from
+ and to any central or for that matter any other instance. What
  they exactly are able to replicate and write back will depend on the
  credentials that are available to the installer of the 2nd tier
  instance and the roles and permissions granted to these credentials.
@@ -342,16 +345,16 @@ local instance he will have to change the credentials used to setup
 the replications for this instance as well. If a user does not want
 his password hash exposed he can change it in the a central user
 database directly, and again if he maintains a local database he will
-to update the credentials used. If he accesses the data via a local
-instance maintained by someone else he will have to use the old
-password since no user data gets replicated *out* of the central user
-database only *in*. If he updates this out of sync password in the
-roster app the password might be synchronized again across all
-instances. If a user does not want to expose their hash he can adopt
-this strategy however if he is that worried he is better off using
-a single but very strong and unique (compared to any other passwords
-he might be using elsewhere) password. It greatly eases administration
-of users' credentials.
+have to update the credentials used locally. If he accesses the data
+via a local instance maintained by someone else he will have to use
+the old password since no user data gets replicated *out* of the
+central user database only *in*. If he updates this out of sync
+password in the roster app the password might be synchronized again
+across all instances. If a user does not want to expose their hash he
+can adopt this strategy however if he is that worried he is better off
+using a single but very strong and unique (compared to any other
+passwords he might be using elsewhere) password. It greatly eases
+administration of users' credentials.
 
 <a id="groups of users"></a>
 #####Groups of users
